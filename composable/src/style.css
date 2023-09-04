@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+
+    margin: 0;
+    font-family: Inter , sans-serif;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #21222A;
+    height: 90px
+    padding: 30px 25px;
+
+}
+
+//select h3 inside of nav.
+nav > h3 , nav > h4 {
+    margin: 0;
+}
+
+nav > h3{
+    margin-right:auto;
+    color: #61dafb;
+    font-weight : 700;
+}
+
+nav > img { 
+     height: 30px
+}
