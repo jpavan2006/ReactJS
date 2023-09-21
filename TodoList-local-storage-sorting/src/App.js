@@ -6,17 +6,24 @@ const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App() {
 
-  const [todos,setTodos]=React.useState([])
+  //const [todos,setTodos]=React.useState([])
+
+//gets from local storage
+  const [todos,setTodos]=React.useState(()=>{
+    if( localStorage.getItem(LOCAL_STORAGE_KEY) == null) return []
+       return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  })
+
   const todoNameRef=useRef()
 
   ////this function is called only once when there is empty arrry and never again as empty array is only once.
-  useEffect(() => {
-    console.log("stored item "+localStorage.getItem(LOCAL_STORAGE_KEY))
-    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if(storedTodos) 
-        setTodos(storedTodos)
-      console.log("Set storedTodos" + storedTodos.length)
-      } ,[])
+  // useEffect(() => {
+  //   console.log("stored item "+localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   if(storedTodos) 
+  //       setTodos(todos => todos)
+  //     console.log("Set storedTodos" + storedTodos.length)
+  //     } ,[])
 
   //we can easily persist our todolist is to store in local storage.
   //the easiest way to do which are side effect are done by useEffect
